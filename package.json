@@ -1,0 +1,10 @@
+{
+  "name": "pestforce-nederland",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Pestforce Nederland — site + admin",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
+}

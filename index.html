@@ -664,6 +664,10 @@
 
       <!-- Form -->
       <form class="form reveal d1" id="inspectionForm" novalidate>
+        <!-- honeypot — must stay empty -->
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+          <label>Website (laat leeg)<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+        </div>
         <div class="form-state form-state--idle">
           <fieldset class="form-section">
             <legend class="form-legend"><span class="step">A</span> Uw gegevens</legend>
@@ -944,7 +948,9 @@
     }
     function clearError(){ errEl.hidden = true; errEl.textContent = ''; }
 
-    form.addEventListener('submit', e=>{
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       clearError();
       if(!form.checkValidity()){
@@ -955,30 +961,54 @@
       const fd = new FormData(form);
       const data = Object.fromEntries(fd.entries());
 
-      // Compose mailto body
-      const lines = [
-        `Naam: ${data.naam}`,
-        data.bedrijf ? `Bedrijf: ${data.bedrijf}` : null,
-        `E-mail: ${data.email}`,
-        `Telefoon: ${data.telefoon}`,
-        `Adres: ${data.adres}`,
-        '',
-        `Type overlast: ${data.type}`,
-        `Urgentie: ${data.urgentie || '—'}`,
-        data.bericht ? `\nBeschrijving:\n${data.bericht}` : null,
-        '',
-        data.datum
-          ? `Voorkeursmoment: ${data.datum}${data.tijd ? ' om ' + data.tijd : ' (tijd nader te bepalen)'}`
-          : 'Voorkeur: telefonisch overleggen'
-      ].filter(Boolean).join('\n');
+      const originalLabel = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Bezig met versturen…';
 
-      const subject = `Inspectie-aanvraag — ${data.type || 'overig'}`;
-      const mailto = `mailto:info@pestforcenederland.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
+      // 1) Try server endpoint (SMTP2GO + KV)
+      let serverOk = false;
+      let serverError = null;
+      try {
+        const r = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const j = await r.json().catch(()=>({}));
+        if(r.ok && j.ok){ serverOk = true; }
+        else { serverError = j.error || `Server gaf ${r.status}`; }
+      } catch(err){
+        serverError = 'Geen verbinding met de server';
+      }
 
-      // Trigger mail client (best-effort, doesn't block UX)
-      try { window.location.href = mailto; } catch(_) {}
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalLabel;
 
-      // Build summary
+      // 2) Fallback to mailto if server failed
+      if(!serverOk){
+        const lines = [
+          `Naam: ${data.naam}`,
+          data.bedrijf ? `Bedrijf: ${data.bedrijf}` : null,
+          `E-mail: ${data.email}`,
+          `Telefoon: ${data.telefoon}`,
+          `Adres: ${data.adres}`,
+          '',
+          `Type overlast: ${data.type}`,
+          `Urgentie: ${data.urgentie || '—'}`,
+          data.bericht ? `\nBeschrijving:\n${data.bericht}` : null,
+          '',
+          data.datum
+            ? `Voorkeursmoment: ${data.datum}${data.tijd ? ' om ' + data.tijd : ' (tijd nader te bepalen)'}`
+            : 'Voorkeur: telefonisch overleggen'
+        ].filter(Boolean).join('\n');
+        const subject = `Inspectie-aanvraag — ${data.type || 'overig'}`;
+        const mailto = `mailto:info@pestforcenederland.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
+        showError(`Verzending via de server lukte niet (${serverError}). Uw mailclient wordt geopend zodat u de aanvraag alsnog kunt versturen.`);
+        try { window.location.href = mailto; } catch(_) {}
+        return;
+      }
+
+      // 3) Success — show confirmation
       let dateStr = null;
       if(data.datum){
         try {
@@ -995,14 +1025,6 @@
 
       idleState.hidden = true;
       successState.hidden = false;
-
-      // Persist a lightweight log locally so the user has a copy
-      try {
-        const log = JSON.parse(localStorage.getItem('pf-aanvragen') || '[]');
-        log.push({ ...data, _ts: new Date().toISOString() });
-        localStorage.setItem('pf-aanvragen', JSON.stringify(log).slice(0, 500000));
-      } catch(_) {}
-
       scrollToEl(form, 100);
     });
 
