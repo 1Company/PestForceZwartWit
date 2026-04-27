@@ -139,8 +139,73 @@ export default async function handler(req, res){
     await sendEmail({ to: recipient, replyTo: email, subject, text, html });
     mailOk = true;
   } catch(err){
-    console.error('SMTP2GO failed:', err);
+    console.error('SMTP2GO admin-mail failed:', err);
     mailError = err.message;
+  }
+
+  // ---- Bevestiging naar de klant ----
+  const voornaam = naam.split(/\s+/)[0] || naam;
+  const voorkeur = datum
+    ? `${datum}${tijd ? ' om ' + tijd : ' (tijd in overleg)'}`
+    : 'telefonisch overleggen';
+
+  const ackText = [
+    `Beste ${voornaam},`,
+    ``,
+    `Bedankt voor uw aanvraag bij Pestforce Nederland. Wij hebben uw bericht goed ontvangen en nemen binnen 24 uur contact met u op om de afspraak te bevestigen of een alternatief moment voor te stellen.`,
+    ``,
+    `— Wat wij hebben ontvangen —`,
+    `Type overlast: ${type}`,
+    `Urgentie: ${urgentie || '—'}`,
+    `Adres: ${adres}`,
+    bericht ? `\nBeschrijving:\n${bericht}` : null,
+    ``,
+    `— Voorkeursmoment —`,
+    voorkeur,
+    ``,
+    `Heeft u in de tussentijd vragen? Bel of mail ons gerust.`,
+    ``,
+    `Met vriendelijke groet,`,
+    `Mike`,
+    `Pestforce Nederland`,
+    ``,
+    `Ref: ${id}`
+  ].filter(Boolean).join('\n');
+
+  const ackHtml = `<!doctype html><html><body style="margin:0;padding:0;background:#F5F1EB">
+<div style="max-width:560px;margin:0 auto;padding:40px 24px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#0A0A0A">
+  <div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#6B6B68;margin-bottom:10px">Pestforce Nederland</div>
+  <h1 style="font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:34px;letter-spacing:-.02em;margin:0 0 18px;line-height:1.05">Uw aanvraag is<br/><em style="font-style:italic">binnen.</em></h1>
+  <p style="color:#3A3A37;line-height:1.65;font-size:15px;margin:0 0 28px">Beste ${escapeHtml(voornaam)},<br/><br/>Bedankt voor uw aanvraag. Wij hebben uw bericht goed ontvangen en nemen <strong>binnen 24 uur</strong> contact met u op om de afspraak te bevestigen of een alternatief moment voor te stellen.</p>
+
+  <div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#6B6B68;margin:32px 0 12px;padding-top:18px;border-top:1px solid #ddd">Wat wij hebben ontvangen</div>
+  <table style="width:100%;border-collapse:collapse">
+    ${row('Type', escapeHtml(type))}
+    ${row('Urgentie', escapeHtml(urgentie || '—'))}
+    ${row('Adres', escapeHtml(adres))}
+    ${row('Voorkeur', datum ? escapeHtml(datum) + (tijd ? ' om ' + escapeHtml(tijd) : ' (tijd in overleg)') : 'Telefonisch overleggen')}
+  </table>
+  ${bericht ? `<div style="margin-top:24px"><div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#6B6B68;margin-bottom:10px">Beschrijving</div><div style="white-space:pre-wrap;color:#3A3A37;line-height:1.6;font-size:15px">${escapeHtml(bericht)}</div></div>` : ''}
+
+  <p style="color:#3A3A37;line-height:1.65;font-size:15px;margin:36px 0 6px">Heeft u in de tussentijd vragen? Bel of mail ons gerust.</p>
+  <p style="color:#3A3A37;line-height:1.5;font-size:15px;margin:0">Met vriendelijke groet,<br/><span style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:18px">Mike</span><br/><span style="color:#6B6B68;font-size:11px;letter-spacing:.22em;text-transform:uppercase">Pestforce Nederland</span></p>
+
+  <div style="margin-top:36px;padding-top:18px;border-top:1px solid #ddd;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6B6B68">Ref: ${escapeHtml(id)}</div>
+</div></body></html>`;
+
+  let ackOk = false;
+  try {
+    await sendEmail({
+      to: email,
+      replyTo: recipient,
+      subject: 'Uw aanvraag is ontvangen — Pestforce Nederland',
+      text: ackText,
+      html: ackHtml
+    });
+    ackOk = true;
+  } catch(err){
+    // Bevestiging is best-effort. Niet blokkerend voor de aanvraag zelf.
+    console.error('SMTP2GO acknowledgement failed:', err);
   }
 
   if(!mailOk && !kvOk){
@@ -152,6 +217,7 @@ export default async function handler(req, res){
     id,
     stored: kvOk,
     emailed: mailOk,
+    acknowledged: ackOk,
     warning: mailOk ? null : 'opgeslagen, maar e-mail-bezorging is mislukt'
   });
 }
