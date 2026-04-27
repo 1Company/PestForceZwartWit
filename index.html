@@ -6,7 +6,7 @@
 <title>Pestforce Nederland — Ongediertebestrijding</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
 <style>
   :root{
     /* dark (default) */
@@ -31,8 +31,8 @@
     --portrait-fg:#0A0A0A;
     --portrait-grain:#2a2a28;
     --portrait-grain-opacity:.55;
-    --serif:"Fraunces", "Times New Roman", serif;
-    --sans:"Inter", system-ui, sans-serif;
+    --serif:"DM Serif Display", "Times New Roman", serif;
+    --sans:"DM Sans", system-ui, sans-serif;
     --pad:clamp(20px, 4vw, 64px);
     --maxw:1360px;
   }
@@ -72,10 +72,10 @@
   .rule--strong{background:var(--line-strong)}
 
   /* type */
-  h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:300;letter-spacing:-.02em;line-height:.96}
-  .display{font-size:clamp(56px, 11vw, 184px);font-weight:300;letter-spacing:-.035em}
+  h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:.98}
+  .display{font-size:clamp(56px, 11vw, 184px);font-weight:400;letter-spacing:-.035em}
   .display em{font-style:italic;font-weight:400}
-  .h-section{font-size:clamp(40px, 6vw, 88px);font-weight:300;letter-spacing:-.025em;line-height:1.02}
+  .h-section{font-size:clamp(40px, 6vw, 88px);font-weight:400;letter-spacing:-.025em;line-height:1.04}
   .h-card{font-family:var(--serif);font-size:28px;font-weight:400;letter-spacing:-.015em;line-height:1.05}
   .eyebrow{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
   .lead{font-size:clamp(17px, 1.4vw, 20px);line-height:1.55;color:var(--lead);font-weight:300;max-width:54ch}
@@ -163,7 +163,7 @@
   .why-col{padding:56px 36px 56px 0;border-right:1px solid var(--line)}
   .why-col:last-child{border-right:0;padding-right:0}
   .why-col:not(:first-child){padding-left:36px}
-  .why-col .num-big{font-family:var(--serif);font-size:64px;font-weight:300;line-height:1;letter-spacing:-.02em;color:var(--paper);margin-bottom:24px;display:block}
+  .why-col .num-big{font-family:var(--serif);font-size:64px;font-weight:400;line-height:1;letter-spacing:-.02em;color:var(--paper);margin-bottom:24px;display:block}
   .why-col h3{font-family:var(--serif);font-size:28px;font-weight:400;letter-spacing:-.015em;margin-bottom:18px}
   .why-col p{color:var(--soft);font-weight:300;line-height:1.6;font-size:15px}
   @media (max-width:900px){ .why{grid-template-columns:1fr} .why-col{border-right:0;border-bottom:1px solid var(--line);padding:40px 0 !important} .why-col:last-child{border-bottom:0} }
@@ -187,11 +187,11 @@
 
   /* quotes */
   .quotes{padding:180px 0;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
-  .quotes .marks{font-family:var(--serif);font-size:120px;line-height:1;color:var(--paper);font-weight:300;display:block;margin-bottom:24px;letter-spacing:-.02em}
+  .quotes .marks{font-family:var(--serif);font-size:120px;line-height:1;color:var(--paper);font-weight:400;display:block;margin-bottom:24px;letter-spacing:-.02em}
   .quote-stage{position:relative;min-height:240px;display:flex;align-items:center;justify-content:center}
   .quote{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 1s ease}
   .quote.active{opacity:1}
-  .quote q{quotes:none;font-family:var(--serif);font-size:clamp(28px, 4.4vw, 56px);font-weight:300;line-height:1.18;letter-spacing:-.015em;max-width:18ch;display:block}
+  .quote q{quotes:none;font-family:var(--serif);font-size:clamp(28px, 4.4vw, 56px);font-weight:400;line-height:1.18;letter-spacing:-.015em;max-width:18ch;display:block}
   .quote q::before,.quote q::after{content:""}
   .quote em{font-style:italic;font-weight:400}
   .quote-dots{display:flex;gap:14px;justify-content:center;margin-top:64px}
@@ -216,7 +216,7 @@
   .contact .channel{display:flex;justify-content:space-between;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);transition:padding .35s}
   .contact .channel:hover{padding-left:12px}
   .contact .channel .label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-  .contact .channel .value{font-family:var(--serif);font-size:28px;font-weight:300;letter-spacing:-.01em}
+  .contact .channel .value{font-family:var(--serif);font-size:28px;font-weight:400;letter-spacing:-.01em}
   @media (max-width:900px){ .contact .grid{grid-template-columns:1fr;gap:56px} .contact .channel .value{font-size:22px} }
 
   /* footer */
@@ -225,6 +225,77 @@
   footer .meta{font-size:11px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
   footer a{color:var(--mute);font-size:11px;letter-spacing:.18em;text-transform:uppercase;transition:color .25s}
   footer a:hover{color:var(--paper)}
+
+  /* contact + form + planner */
+  .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:start}
+  @media (max-width:1000px){ .contact-grid{grid-template-columns:1fr;gap:56px} }
+  .channels{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+  .channel{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);transition:padding .35s;gap:16px}
+  a.channel:hover{padding-left:12px}
+  .channel .label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);flex-shrink:0}
+  .channel .value{font-family:var(--serif);font-size:24px;font-weight:400;letter-spacing:-.01em;text-align:right}
+  .channels-body{margin-top:32px;color:var(--soft);max-width:36ch;font-size:14px;line-height:1.65;font-weight:300}
+
+  .form{display:flex;flex-direction:column;min-width:0}
+  .form-section{border:0;padding:0;margin:0 0 56px;min-width:0}
+  .form-section:last-of-type{margin-bottom:32px}
+  .form-legend{display:flex;align-items:baseline;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 28px;padding:0 0 14px;width:100%;border-bottom:1px solid var(--line);font-weight:500}
+  .form-legend .step{font-family:var(--serif);font-size:18px;letter-spacing:0;text-transform:none;color:var(--paper)}
+  .form-grid{display:grid;gap:28px 32px}
+  .form-grid--2{grid-template-columns:1fr 1fr}
+  @media (max-width:640px){ .form-grid--2{grid-template-columns:1fr} }
+  .field{display:flex;flex-direction:column;gap:8px;min-width:0}
+  .field--full{grid-column:1/-1}
+  .field label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);font-weight:500}
+  .field label .opt{text-transform:none;letter-spacing:.04em;color:var(--mute);font-weight:400;margin-left:6px;font-size:11px}
+  .field input,.field textarea,.field select{appearance:none;-webkit-appearance:none;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--paper);font:inherit;font-size:16px;font-weight:400;padding:10px 0;border-radius:0;transition:border-color .25s, color .25s;width:100%}
+  .field textarea{resize:vertical;min-height:80px;line-height:1.55;font-family:var(--sans)}
+  .field select{background-image:linear-gradient(45deg,transparent 50%,var(--paper) 50%),linear-gradient(135deg,var(--paper) 50%,transparent 50%);background-position:calc(100% - 14px) 18px,calc(100% - 8px) 18px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:28px;cursor:pointer}
+  .field select option{background:var(--ink);color:var(--paper)}
+  .field input::placeholder,.field textarea::placeholder{color:var(--mute);opacity:1}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:0;border-bottom-color:var(--paper)}
+
+  .radios{display:flex;flex-wrap:wrap;gap:8px;padding-top:6px}
+  .radio{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;letter-spacing:.04em;color:var(--body);padding:9px 16px;border:1px solid var(--line);border-radius:999px;transition:border-color .25s,background .25s,color .25s;user-select:none}
+  .radio input{appearance:none;-webkit-appearance:none;width:7px;height:7px;border-radius:50%;background:transparent;border:1px solid var(--line-strong);margin:0;cursor:pointer;transition:background .25s,border-color .25s}
+  .radio:hover{border-color:var(--line-strong);color:var(--paper)}
+  .radio:has(input:checked){background:var(--paper);color:var(--ink);border-color:var(--paper)}
+  .radio:has(input:checked) input{background:var(--ink);border-color:var(--ink)}
+
+  .form-hint{color:var(--soft);font-size:14px;line-height:1.6;margin:0 0 24px;max-width:54ch;font-weight:300}
+  .planner{display:flex;flex-direction:column;gap:24px}
+  .planner-dates{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+  @media (max-width:640px){ .planner-dates{grid-template-columns:repeat(4,minmax(0,1fr))} }
+  .date-chip{appearance:none;background:transparent;border:1px solid var(--line);color:var(--paper);font-family:var(--sans);padding:14px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;border-radius:0;transition:background .25s,border-color .25s,color .25s,transform .35s cubic-bezier(.2,.7,.2,1)}
+  .date-chip .dow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);font-weight:500}
+  .date-chip .dom{font-family:var(--serif);font-size:22px;letter-spacing:-.01em;line-height:1;font-weight:400}
+  .date-chip .mon{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:500}
+  .date-chip:hover{border-color:var(--line-strong)}
+  .date-chip[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper);transform:translateY(-2px)}
+  .date-chip[aria-pressed="true"] .dow,.date-chip[aria-pressed="true"] .mon{color:var(--ink);opacity:.55}
+
+  .planner-slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  @media (max-width:640px){ .planner-slots{grid-template-columns:repeat(2,minmax(0,1fr))} }
+  .slot-chip{appearance:none;background:transparent;border:1px solid var(--line);color:var(--paper);font-family:var(--sans);font-size:13px;letter-spacing:.04em;padding:14px 8px;cursor:pointer;border-radius:0;transition:background .25s,border-color .25s,color .25s;font-weight:500}
+  .slot-chip:hover{border-color:var(--line-strong)}
+  .slot-chip[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+  .planner-skip{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;color:var(--soft);user-select:none;font-weight:400}
+  .planner-skip input{appearance:none;-webkit-appearance:none;width:14px;height:14px;border:1px solid var(--line-strong);background:transparent;cursor:pointer;border-radius:0;display:grid;place-items:center;transition:background .25s,border-color .25s;margin:0}
+  .planner-skip input:checked{background:var(--paper);border-color:var(--paper)}
+  .planner-skip input:checked::after{content:"";width:6px;height:6px;background:var(--ink)}
+
+  .form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:8px}
+  .form-fineprint{font-size:11px;letter-spacing:.04em;color:var(--mute);margin:0;max-width:32ch;line-height:1.55}
+  .btn-link{appearance:none;background:transparent;border:0;color:var(--mute);font:inherit;font-size:11px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;padding:6px 0;position:relative;transition:color .25s;font-weight:500;font-family:var(--sans)}
+  .btn-link:hover{color:var(--paper)}
+  .btn-link::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--paper);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+  .btn-link:hover::after{transform:scaleX(1)}
+
+  .form-error{margin-top:14px;font-size:13px;color:var(--paper);letter-spacing:.02em;border-left:1px solid var(--line-strong);padding:6px 0 6px 14px}
+  .form-error[hidden]{display:none}
+
+  .form-state--success{display:flex;flex-direction:column;align-items:flex-start;padding:48px 0}
 
   /* scroll reveal */
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -552,7 +623,7 @@
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT + INSPECTIE -->
 <section id="contact" class="contact">
   <div class="wrap">
     <div class="sec-head">
@@ -563,30 +634,125 @@
       <h2 class="h-section reveal d1">Een probleem is<br/>het beste vroeg.</h2>
     </div>
 
-    <div class="grid">
-      <div class="channels reveal">
-        <a class="channel" href="tel:+31000000000">
-          <span class="label">Telefoon</span>
-          <span class="value">+31 (0)6 — 00 00 00 00</span>
-        </a>
-        <a class="channel" href="mailto:info@pestforcenederland.nl">
-          <span class="label">E-mail</span>
-          <span class="value">info@pestforcenederland.nl</span>
-        </a>
-        <a class="channel" href="#">
-          <span class="label">Werkgebied</span>
-          <span class="value">Heel Nederland</span>
-        </a>
-        <a class="channel" href="#">
-          <span class="label">Reactietijd</span>
-          <span class="value">Binnen 24 uur</span>
-        </a>
-      </div>
+    <div class="contact-grid">
+      <!-- Channels -->
+      <aside class="reveal">
+        <div class="channels">
+          <a class="channel" href="tel:+31000000000">
+            <span class="label">Telefoon</span>
+            <span class="value">+31 (0)6 — 00 00 00 00</span>
+          </a>
+          <a class="channel" href="mailto:info@pestforcenederland.nl">
+            <span class="label">E-mail</span>
+            <span class="value">info@pestforcenederland.nl</span>
+          </a>
+          <div class="channel">
+            <span class="label">Werkgebied</span>
+            <span class="value">Heel Nederland</span>
+          </div>
+          <div class="channel">
+            <span class="label">Reactietijd</span>
+            <span class="value">Binnen 24 uur</span>
+          </div>
+        </div>
+        <p class="channels-body">
+          Liever direct contact? Bel of mail ons. Voor inspectie-aanvragen
+          kunt u ook het formulier hiernaast gebruiken — dan heeft u meteen
+          een voorkeursmoment ingepland.
+        </p>
+      </aside>
 
-      <div class="reveal d1" style="display:flex;flex-direction:column;gap:18px;align-items:flex-start">
-        <p class="body" style="max-width:32ch">Beschrijf in een paar zinnen wat u ziet of hoort. Wij komen kijken, stellen de diagnose en doen een eerlijk voorstel.</p>
-        <a href="mailto:info@pestforcenederland.nl" class="btn">Plan inspectie <span class="arr"></span></a>
-      </div>
+      <!-- Form -->
+      <form class="form reveal d1" id="inspectionForm" novalidate>
+        <div class="form-state form-state--idle">
+          <fieldset class="form-section">
+            <legend class="form-legend"><span class="step">A</span> Uw gegevens</legend>
+            <div class="form-grid form-grid--2">
+              <div class="field">
+                <label for="f-naam">Naam</label>
+                <input id="f-naam" name="naam" type="text" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="f-bedrijf">Bedrijf <span class="opt">(optioneel)</span></label>
+                <input id="f-bedrijf" name="bedrijf" type="text" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="f-email">E-mail</label>
+                <input id="f-email" name="email" type="email" required autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="f-tel">Telefoon</label>
+                <input id="f-tel" name="telefoon" type="tel" required autocomplete="tel" />
+              </div>
+              <div class="field field--full">
+                <label for="f-adres">Adres / locatie</label>
+                <input id="f-adres" name="adres" type="text" required autocomplete="street-address" placeholder="Straat, huisnummer, plaats" />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend class="form-legend"><span class="step">B</span> De situatie</legend>
+            <div class="form-grid form-grid--2">
+              <div class="field">
+                <label for="f-type">Type overlast</label>
+                <select id="f-type" name="type" required>
+                  <option value="">Maak een keuze</option>
+                  <option>Knaagdieren</option>
+                  <option>Insecten (boktor / houtworm)</option>
+                  <option>Bedwantsen</option>
+                  <option>Mieren</option>
+                  <option>Wespen</option>
+                  <option>Anders / onbekend</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Urgentie</label>
+                <div class="radios" role="radiogroup">
+                  <label class="radio"><input type="radio" name="urgentie" value="Acuut" /><span>Acuut</span></label>
+                  <label class="radio"><input type="radio" name="urgentie" value="Deze week" checked /><span>Deze week</span></label>
+                  <label class="radio"><input type="radio" name="urgentie" value="Geen haast" /><span>Geen haast</span></label>
+                </div>
+              </div>
+              <div class="field field--full">
+                <label for="f-msg">Beschrijving</label>
+                <textarea id="f-msg" name="bericht" rows="3" placeholder="Wat ziet, hoort of ruikt u? Hoe lang al?"></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend class="form-legend"><span class="step">C</span> Plan een moment</legend>
+            <p class="form-hint">Kies een voorkeursdatum en tijdslot. Wij bevestigen binnen 24 uur per e-mail of telefoon — gewoon een handvat, niet bindend.</p>
+            <div class="planner">
+              <div class="planner-dates" id="plannerDates" role="radiogroup" aria-label="Datum"></div>
+              <div class="planner-slots" id="plannerSlots" role="radiogroup" aria-label="Tijdslot" hidden></div>
+              <label class="planner-skip">
+                <input type="checkbox" id="plannerSkip" />
+                <span>Liever eerst telefonisch overleggen</span>
+              </label>
+              <input type="hidden" name="datum" id="f-datum" />
+              <input type="hidden" name="tijd" id="f-tijd" />
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Verstuur aanvraag <span class="arr"></span></button>
+            <p class="form-fineprint">Door te versturen geeft u toestemming om benaderd te worden voor deze aanvraag.</p>
+          </div>
+          <div class="form-error" id="formError" hidden></div>
+        </div>
+
+        <div class="form-state form-state--success" hidden>
+          <span class="num" style="margin-bottom:14px;display:block">— Bevestigd</span>
+          <h3 class="h-section" style="font-size:clamp(28px,3.4vw,44px);margin:0 0 24px">Aanvraag<br/><em>onderweg.</em></h3>
+          <p class="lead" id="successSummary"></p>
+          <div class="form-actions" style="margin-top:36px;flex-direction:row;align-items:center">
+            <a id="icsDownload" class="btn btn--ghost" download="pestforce-inspectie.ics" href="#">Voeg toe aan agenda <span class="arr"></span></a>
+            <button type="button" id="formReset" class="btn-link">Nieuwe aanvraag</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </section>
@@ -650,19 +816,207 @@
 
   // Smooth anchor scrolling (respect reduced motion) — manual to avoid scrollIntoView
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function scrollToEl(t, offset = 60){
+    const y = t.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+  }
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', e=>{
       const id = a.getAttribute('href');
       if(id.length>1){
         const t = document.querySelector(id);
-        if(t){
-          e.preventDefault();
-          const y = t.getBoundingClientRect().top + window.scrollY - 60;
-          window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
-        }
+        if(t){ e.preventDefault(); scrollToEl(t); }
       }
     });
   });
+
+  /* ----------------------------------------
+   * Inspectie-formulier + planner
+   * ---------------------------------------- */
+  (function(){
+    const form = document.getElementById('inspectionForm');
+    if(!form) return;
+
+    const datesEl = document.getElementById('plannerDates');
+    const slotsEl = document.getElementById('plannerSlots');
+    const skipEl  = document.getElementById('plannerSkip');
+    const dateInput = document.getElementById('f-datum');
+    const timeInput = document.getElementById('f-tijd');
+    const idleState = form.querySelector('.form-state--idle');
+    const successState = form.querySelector('.form-state--success');
+    const successSummary = document.getElementById('successSummary');
+    const icsLink = document.getElementById('icsDownload');
+    const errEl = document.getElementById('formError');
+
+    const SLOTS = ['09:00','11:00','13:00','15:00'];
+    const DOW = ['Zo','Ma','Di','Wo','Do','Vr','Za'];
+    const MON = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+
+    // Build next 14 working days (Mon-Sat, skip Sunday). Start tomorrow.
+    function buildDates(){
+      datesEl.innerHTML = '';
+      const today = new Date(); today.setHours(0,0,0,0);
+      let added = 0, day = 1;
+      while(added < 14 && day < 30){
+        const d = new Date(today.getTime() + day*86400000);
+        day++;
+        if(d.getDay() === 0) continue;
+        const iso = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'date-chip';
+        btn.setAttribute('aria-pressed','false');
+        btn.dataset.date = iso;
+        btn.innerHTML = `<span class="dow">${DOW[d.getDay()]}</span><span class="dom">${d.getDate()}</span><span class="mon">${MON[d.getMonth()]}</span>`;
+        btn.addEventListener('click', ()=>selectDate(btn));
+        datesEl.appendChild(btn);
+        added++;
+      }
+    }
+
+    function selectDate(btn){
+      datesEl.querySelectorAll('.date-chip').forEach(b=>b.setAttribute('aria-pressed', b===btn ? 'true' : 'false'));
+      dateInput.value = btn.dataset.date;
+      slotsEl.innerHTML = '';
+      SLOTS.forEach(s=>{
+        const sb = document.createElement('button');
+        sb.type='button';
+        sb.className='slot-chip';
+        sb.setAttribute('aria-pressed','false');
+        sb.dataset.slot = s;
+        sb.textContent = s;
+        sb.addEventListener('click', ()=>selectSlot(sb));
+        slotsEl.appendChild(sb);
+      });
+      slotsEl.hidden = false;
+      timeInput.value = '';
+      if(skipEl.checked) skipEl.checked = false;
+    }
+
+    function selectSlot(btn){
+      slotsEl.querySelectorAll('.slot-chip').forEach(b=>b.setAttribute('aria-pressed', b===btn ? 'true' : 'false'));
+      timeInput.value = btn.dataset.slot;
+    }
+
+    skipEl.addEventListener('change', ()=>{
+      if(skipEl.checked){
+        datesEl.querySelectorAll('.date-chip').forEach(b=>b.setAttribute('aria-pressed','false'));
+        slotsEl.innerHTML = '';
+        slotsEl.hidden = true;
+        dateInput.value = '';
+        timeInput.value = '';
+      }
+    });
+
+    buildDates();
+
+    // ICS file (floating local time, 1h block)
+    function pad(n){ return String(n).padStart(2,'0'); }
+    function buildICS(data){
+      if(!data.datum || !data.tijd) return null;
+      const [Y,M,D] = data.datum.split('-').map(Number);
+      const [h,m]   = data.tijd.split(':').map(Number);
+      const startLocal = `${Y}${pad(M)}${pad(D)}T${pad(h)}${pad(m)}00`;
+      const endLocal   = `${Y}${pad(M)}${pad(D)}T${pad(h+1)}${pad(m)}00`;
+      const stamp = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+      const uid   = 'pf-' + Math.random().toString(36).slice(2) + '@pestforcenederland.nl';
+      const esc = s => String(s||'').replace(/[\\,;]/g, m => '\\'+m).replace(/\n/g,'\\n');
+      const desc = esc(`Inspectie-aanvraag Pestforce Nederland\nNaam: ${data.naam}\nTel: ${data.telefoon}\nE-mail: ${data.email}\nType: ${data.type}\nUrgentie: ${data.urgentie}${data.bericht ? '\n\n'+data.bericht : ''}`);
+      const ics = [
+        'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Pestforce Nederland//Inspectie//NL','CALSCALE:GREGORIAN','METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        `UID:${uid}`,
+        `DTSTAMP:${stamp}`,
+        `DTSTART:${startLocal}`,
+        `DTEND:${endLocal}`,
+        `SUMMARY:Pestforce — Inspectie ${esc(data.type || '')}`.trim(),
+        `DESCRIPTION:${desc}`,
+        `LOCATION:${esc(data.adres || '')}`,
+        'STATUS:TENTATIVE',
+        'END:VEVENT','END:VCALENDAR'
+      ].join('\r\n');
+      return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+    }
+
+    function showError(msg){
+      errEl.textContent = msg;
+      errEl.hidden = false;
+    }
+    function clearError(){ errEl.hidden = true; errEl.textContent = ''; }
+
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      clearError();
+      if(!form.checkValidity()){
+        form.reportValidity();
+        showError('Vul de verplichte velden in om de aanvraag te versturen.');
+        return;
+      }
+      const fd = new FormData(form);
+      const data = Object.fromEntries(fd.entries());
+
+      // Compose mailto body
+      const lines = [
+        `Naam: ${data.naam}`,
+        data.bedrijf ? `Bedrijf: ${data.bedrijf}` : null,
+        `E-mail: ${data.email}`,
+        `Telefoon: ${data.telefoon}`,
+        `Adres: ${data.adres}`,
+        '',
+        `Type overlast: ${data.type}`,
+        `Urgentie: ${data.urgentie || '—'}`,
+        data.bericht ? `\nBeschrijving:\n${data.bericht}` : null,
+        '',
+        data.datum
+          ? `Voorkeursmoment: ${data.datum}${data.tijd ? ' om ' + data.tijd : ' (tijd nader te bepalen)'}`
+          : 'Voorkeur: telefonisch overleggen'
+      ].filter(Boolean).join('\n');
+
+      const subject = `Inspectie-aanvraag — ${data.type || 'overig'}`;
+      const mailto = `mailto:info@pestforcenederland.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
+
+      // Trigger mail client (best-effort, doesn't block UX)
+      try { window.location.href = mailto; } catch(_) {}
+
+      // Build summary
+      let dateStr = null;
+      if(data.datum){
+        try {
+          dateStr = new Date(data.datum + 'T00:00:00').toLocaleDateString('nl-NL', { weekday:'long', day:'numeric', month:'long' });
+        } catch(_){ dateStr = data.datum; }
+      }
+      successSummary.textContent = dateStr
+        ? `Wij komen graag op ${dateStr}${data.tijd ? ' om ' + data.tijd : ' (tijd in overleg)'}. Wij bevestigen uw afspraak binnen 24 uur per e-mail of telefoon.`
+        : `Bedankt voor uw aanvraag. Wij nemen binnen 24 uur telefonisch contact met u op om een moment te plannen.`;
+
+      const ics = buildICS(data);
+      if(ics){ icsLink.href = ics; icsLink.hidden = false; icsLink.style.display = ''; }
+      else   { icsLink.hidden = true; icsLink.style.display = 'none'; }
+
+      idleState.hidden = true;
+      successState.hidden = false;
+
+      // Persist a lightweight log locally so the user has a copy
+      try {
+        const log = JSON.parse(localStorage.getItem('pf-aanvragen') || '[]');
+        log.push({ ...data, _ts: new Date().toISOString() });
+        localStorage.setItem('pf-aanvragen', JSON.stringify(log).slice(0, 500000));
+      } catch(_) {}
+
+      scrollToEl(form, 100);
+    });
+
+    document.getElementById('formReset').addEventListener('click', ()=>{
+      form.reset();
+      datesEl.querySelectorAll('.date-chip').forEach(b=>b.setAttribute('aria-pressed','false'));
+      slotsEl.innerHTML = ''; slotsEl.hidden = true;
+      dateInput.value = ''; timeInput.value = '';
+      successState.hidden = true;
+      idleState.hidden = false;
+      clearError();
+      scrollToEl(form, 100);
+    });
+  })();
 </script>
 
 </body>
