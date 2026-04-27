@@ -984,27 +984,9 @@
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalLabel;
 
-      // 2) Fallback to mailto if server failed
+      // 2) Server failed — toon foutmelding (geen mailto-fallback, alles via SMTP2GO)
       if(!serverOk){
-        const lines = [
-          `Naam: ${data.naam}`,
-          data.bedrijf ? `Bedrijf: ${data.bedrijf}` : null,
-          `E-mail: ${data.email}`,
-          `Telefoon: ${data.telefoon}`,
-          `Adres: ${data.adres}`,
-          '',
-          `Type overlast: ${data.type}`,
-          `Urgentie: ${data.urgentie || '—'}`,
-          data.bericht ? `\nBeschrijving:\n${data.bericht}` : null,
-          '',
-          data.datum
-            ? `Voorkeursmoment: ${data.datum}${data.tijd ? ' om ' + data.tijd : ' (tijd nader te bepalen)'}`
-            : 'Voorkeur: telefonisch overleggen'
-        ].filter(Boolean).join('\n');
-        const subject = `Inspectie-aanvraag — ${data.type || 'overig'}`;
-        const mailto = `mailto:info@pestforcenederland.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
-        showError(`Verzending via de server lukte niet (${serverError}). Uw mailclient wordt geopend zodat u de aanvraag alsnog kunt versturen.`);
-        try { window.location.href = mailto; } catch(_) {}
+        showError(`Versturen is niet gelukt (${serverError}). Probeer het zo nogmaals, of bel ons direct op +31 (0)6 — 00 00 00 00.`);
         return;
       }
 
