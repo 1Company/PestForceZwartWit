@@ -86,7 +86,8 @@
   nav.top{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(10px);background:var(--nav-bg);border-bottom:1px solid var(--line);transition:background .3s}
   nav.top .row{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
   .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:20px;letter-spacing:-.01em}
-  .brand .dot{width:8px;height:8px;background:var(--paper);border-radius:50%}
+  .brand .mark{width:42px;height:22px;color:var(--paper);flex:none}
+  .brand .mark path,.brand .mark ellipse,.brand .mark circle{vector-effect:non-scaling-stroke}
   .nav-links{display:flex;gap:36px;font-size:13px;letter-spacing:.04em;color:var(--body)}
   .nav-right{display:flex;align-items:center;gap:18px}
 
@@ -316,7 +317,7 @@
 <!-- NAV -->
 <nav class="top">
   <div class="wrap row">
-    <a href="#top" class="brand"><span class="dot"></span><span>Pestforce<span style="color:var(--mute)"> / NL</span></span></a>
+    <a href="#top" class="brand"><svg class="mark" viewBox="0 0 160 80" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M40 36 C 30 22 22 16 14 14"/><path d="M40 36 C 32 28 24 24 18 24"/><ellipse cx="44" cy="40" rx="7" ry="6"/><circle cx="42" cy="40" r="1.2" fill="currentColor" stroke="none"/><ellipse cx="62" cy="42" rx="10" ry="9"/><ellipse cx="106" cy="46" rx="28" ry="11"/><path d="M92 36 Q 92 46 91 56"/><path d="M104 35 Q 104 46 105 57"/><path d="M116 36 Q 116 46 117 56"/><path d="M127 38 Q 127 46 127 54"/><path d="M56 33 Q 60 14 84 18 Q 78 33 66 33"/></svg><span>Pestforce<span style="color:var(--mute)"> / NL</span></span></a>
     <div class="nav-links">
       <a href="#diensten">Diensten</a>
       <a href="#waarom">Waarom</a>

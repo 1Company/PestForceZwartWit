@@ -51,7 +51,8 @@
   nav.top{position:sticky;top:0;z-index:30;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   nav.top .row{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
   .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:18px;letter-spacing:-.01em}
-  .brand .dot{width:7px;height:7px;background:var(--paper);border-radius:50%}
+  .brand .mark{width:38px;height:20px;color:var(--paper);flex:none}
+  .brand .mark path,.brand .mark ellipse,.brand .mark circle{vector-effect:non-scaling-stroke}
   .brand small{color:var(--mute);font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;margin-left:8px}
   .nav-right{display:flex;align-items:center;gap:18px;font-size:12px;color:var(--mute)}
   .nav-right .who{letter-spacing:.04em}
@@ -166,7 +167,7 @@
 
 <nav class="top">
   <div class="wrap row">
-    <a href="/" class="brand"><span class="dot"></span><span>Pestforce<small>Admin</small></span></a>
+    <a href="/" class="brand"><svg class="mark" viewBox="0 0 160 80" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M40 36 C 30 22 22 16 14 14"/><path d="M40 36 C 32 28 24 24 18 24"/><ellipse cx="44" cy="40" rx="7" ry="6"/><circle cx="42" cy="40" r="1.2" fill="currentColor" stroke="none"/><ellipse cx="62" cy="42" rx="10" ry="9"/><ellipse cx="106" cy="46" rx="28" ry="11"/><path d="M92 36 Q 92 46 91 56"/><path d="M104 35 Q 104 46 105 57"/><path d="M116 36 Q 116 46 117 56"/><path d="M127 38 Q 127 46 127 54"/><path d="M56 33 Q 60 14 84 18 Q 78 33 66 33"/></svg><span>Pestforce<small>Admin</small></span></a>
     <div class="nav-right" id="navRight">
       <button id="themeToggle" class="theme-toggle" type="button" aria-label="Wissel licht/donker" title="Wissel licht/donker">
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
